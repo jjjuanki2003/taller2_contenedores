@@ -1,5 +1,8 @@
 package uce.edu.ec.negocio;
 
+import jakarta.inject.Singleton;
+
+@Singleton 
 public class MailService {
     public void enviar(String correo, String asunto, String cuerpo){
         System.out.println("Enviando correo a: "+ correo);

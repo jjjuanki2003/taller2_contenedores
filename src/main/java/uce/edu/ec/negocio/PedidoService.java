@@ -1,5 +1,8 @@
 package uce.edu.ec.negocio;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped 
 public class PedidoService {
     public void     realizar(Pedido pedido ){
         System.out.println("Realizado pedido...");
