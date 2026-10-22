@@ -2,16 +2,17 @@ package uce.edu.jc.paquete;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.inject.spi.CDI;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @ApplicationScoped 
 public class PedidoService {
 
-    
+    /*
     @Inject
     private MailService mailService;
-   
+    */
 
     /*
     //Inyección de dependencias por constructor
@@ -36,7 +37,13 @@ public class PedidoService {
     }
 //-------------------------------------------------------------------------
    */  
-    public void realizar(Pedido pedido) {
+
+//Lookup de la clase MailService
+
+
+MailService mailService = CDI.current().select(MailService.class).get();
+
+public void realizar(Pedido pedido) {
         System.out.println("Realizado pedido...");
         System.out.println("" + pedido.getCliente());
         System.out.println("" + pedido.getProducto());
