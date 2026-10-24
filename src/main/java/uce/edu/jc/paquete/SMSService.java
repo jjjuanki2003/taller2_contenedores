@@ -15,5 +15,19 @@ public class SMSService implements Notificacion {
         System.out.println("Enviado correctamente");
         System.out.println("Fin del servicio de SMS! ");
     }
+      public Integer getCantidad() {
+        return 0;
+      }
+    public void setCantidad(Integer cantidad) {
+        
+    }
+    
+        public String getNombre() {
+
+        return null;
+         }
+    public void setNombre(String nombre) {
+
+    }
 
 }
