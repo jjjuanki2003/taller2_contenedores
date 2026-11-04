@@ -9,14 +9,24 @@ public class PedidoService {
    
     @Auditoria 
     public String realizar(Pedido pedido, String valor1) {
+
+        long init = System.currentTimeMillis();
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         System.out.println("Realizado pedido...");
         System.out.println("Pedido realizado para: " + pedido.getCliente());
         System.out.println("Producto" + pedido.getProducto());
         System.out.println("Total: " + pedido.getTotal());
         System.out.println("Correo: " + pedido.getCorreo());
 
+        long end = System.currentTimeMillis();
 
-        return "Pedido realizado con éxito";
+        return "Pedido realizado con éxito" + " Tiempo de ejecución: " + (end - init) + " ms";
 
     }
 }
