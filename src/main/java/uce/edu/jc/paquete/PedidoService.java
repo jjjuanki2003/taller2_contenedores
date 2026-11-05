@@ -2,15 +2,19 @@ package uce.edu.jc.paquete;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import uce.edu.jc.paquete.interceptors.Auditoria;
+import uce.edu.jc.paquete.interceptors.Mail;
+import uce.edu.jc.paquete.interceptors.SMS;
+import uce.edu.jc.paquete.interceptors.medTiempo;
 
 @ApplicationScoped
 public class PedidoService {
 
    
+    @medTiempo 
     @Auditoria 
+    @Mail 
+    @SMS 
     public String realizar(Pedido pedido, String valor1) {
-
-        long init = System.currentTimeMillis();
 
         try {
             Thread.sleep(1500);
@@ -24,9 +28,8 @@ public class PedidoService {
         System.out.println("Total: " + pedido.getTotal());
         System.out.println("Correo: " + pedido.getCorreo());
 
-        long end = System.currentTimeMillis();
 
-        return "Pedido realizado con éxito" + " Tiempo de ejecución: " + (end - init) + " ms";
+        return "Pedido realizado con éxito";
 
     }
 }
