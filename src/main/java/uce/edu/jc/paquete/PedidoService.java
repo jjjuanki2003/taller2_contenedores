@@ -2,6 +2,7 @@ package uce.edu.jc.paquete;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import uce.edu.jc.paquete.interceptors.Auditoria;
+import uce.edu.jc.paquete.interceptors.Entrada;
 import uce.edu.jc.paquete.interceptors.Mail;
 import uce.edu.jc.paquete.interceptors.SMS;
 import uce.edu.jc.paquete.interceptors.medTiempo;
@@ -14,6 +15,7 @@ public class PedidoService {
     @Auditoria 
     @Mail 
     @SMS 
+    @Entrada 
     public String realizar(Pedido pedido, String valor1) {
 
         try {

@@ -12,7 +12,7 @@ import uce.edu.jc.paquete.Pedido;
 
 @Interceptor 
 @Auditoria 
-@Priority (Interceptor.Priority.APPLICATION + (2))
+@Priority (1)
 public class AuditoriaInterceptor {
 
     @Inject 
@@ -21,19 +21,6 @@ public class AuditoriaInterceptor {
     @AroundInvoke 
     public Object interceptar(InvocationContext context) throws Exception {
          
-        //todo lo que está arriba se ejecuta antes de ejecutar el método interceptado    
-        System.out.println("Mensaje luego de que se ejecuta el método");
-        
-         
-        String nombreMetodo = context.getMethod().getName(); //guardamos el nombre del método
-        System.out.println("AuditoriaInterceptor: Antes de ejecutar el método " + nombreMetodo);
-        System.out.println("Ejecuto todo lo que quiero que haga el interceptor");
-        
-        Parameter[] parametros =context.getMethod().getParameters();
-        for (Parameter parametro : parametros) {
-            System.out.println("Parametro: " + parametro.getName());
-        }
-
         Object[] valores = context.getParameters();
 
         Pedido pedido = (Pedido)valores[0];
@@ -41,11 +28,11 @@ public class AuditoriaInterceptor {
         String cliente = pedido.getCliente();
         double total = pedido.getTotal();
         String correo = pedido.getCorreo();
-
+                
         Object resultado = context.proceed(); //ejecuta el método interceptado
-        System.out.println("Retorno: " + resultado);
 
-        this.auditoriaService.guardarEnLaBase(cliente, total, correo); 
+        this.auditoriaService.guardarEnLaBase(cliente, total, correo);
+ 
         return resultado;
     }
 

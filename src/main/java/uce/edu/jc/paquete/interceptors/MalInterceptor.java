@@ -9,7 +9,7 @@ import uce.edu.jc.paquete.MailService;
 
 @Interceptor 
 @Mail 
-@Priority(Interceptor.Priority.APPLICATION + (4))
+@Priority(3)
 
 public class MalInterceptor {
 

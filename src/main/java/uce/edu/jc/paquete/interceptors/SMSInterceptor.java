@@ -9,7 +9,7 @@ import uce.edu.jc.paquete.SMSService;
 
 @Interceptor 
 @SMS
-@Priority (Interceptor.Priority.APPLICATION + (3))
+@Priority (2)
 public class SMSInterceptor {
 
     @Inject 
