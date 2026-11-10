@@ -13,4 +13,5 @@ import jakarta.interceptor.InterceptorBinding;
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Mail {
 
+    
 }
